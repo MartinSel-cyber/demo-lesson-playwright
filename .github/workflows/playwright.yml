@@ -27,7 +27,7 @@ jobs:
             npm run check
 
       - name: Install Playwright Browsers
-        run: npx playwright install chromium
+        run: npx playwright install chromium --only-shell
 
       - name: Run Playwright tests
         env:
