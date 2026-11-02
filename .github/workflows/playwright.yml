@@ -30,6 +30,7 @@ jobs:
 
       - name: Run Playwright tests
         env:
+          HOME: /root
           URL: ${{ secrets.URL }}
           TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
