@@ -23,7 +23,7 @@ test('signIn with invalid credentials should lead to error', async ({ page }) =>
   await expect(loginPage.signInButton).toBeVisible()
 })
 
-test.skip('login with correct credentials and verify order creation page', async ({ page }) => {
+test('login with correct credentials and verify order creation page', async ({ page }) => {
   const loginPage = new LoginPage(page)
   await loginPage.open()
   const orderCreationPage = await loginPage.signIn(USERNAME, PASSWORD)
