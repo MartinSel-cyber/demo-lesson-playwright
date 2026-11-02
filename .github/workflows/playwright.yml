@@ -7,7 +7,9 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.1-noble
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,11 +28,9 @@ jobs:
             echo "Running Prettier to check for formatting issues..."
             npm run check
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
       - name: Run Playwright tests
         env:
+          HOME: /root
           URL: ${{ secrets.URL }}
           TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
           TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
