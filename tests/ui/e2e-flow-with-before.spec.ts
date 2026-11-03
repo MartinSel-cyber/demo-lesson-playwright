@@ -43,7 +43,6 @@ test('login and create order', async ({}) => {
   await expect(orderCreationPage.successMessage).toBeVisible()
 })
 
-
 test('check error on order creation', async ({}) => {
   const orderCreationPage = await loginPage.signIn(USERNAME, PASSWORD)
   // let's create an order
@@ -55,16 +54,12 @@ test('check error on order creation', async ({}) => {
 
   await expect(orderCreationPage.customerNameError).toBeVisible()
   await expect(orderCreationPage.phoneError).toBeVisible()
-
 })
-
 
 test('checklogout from order page', async ({}) => {
   const orderCreationPage = await loginPage.signIn(USERNAME, PASSWORD)
   // let's create an order
   await orderCreationPage.logOutButton.click()
-
-
 
   await expect(loginPage.signInButton).toBeVisible()
 
@@ -81,9 +76,7 @@ test('order not found page', async ({}) => {
 
   await expect(orderCreationPage.orderNotFoundText).toBeVisible()
   await expect(orderCreationPage.orderNotFoundImage).toBeVisible()
-
 })
-
 
 test('order found page', async ({}) => {
   const orderCreationPage = await loginPage.signIn(USERNAME, PASSWORD)
